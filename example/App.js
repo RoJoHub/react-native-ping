@@ -52,7 +52,7 @@ export default class App extends Component {
             borderWidth: 1,
             alignSelf: 'stretch'
           }}
-          onChangeText={text => this.setState({ ipAddress })}
+          onChangeText={ipAddress => this.setState({ ipAddress })}
           value={this.state.ipAddress}
         />
         <TouchableOpacity onPress={this.onPressButton}>
