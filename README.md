@@ -1,19 +1,21 @@
-# react-native-react-native-ping
+# react-native-ping
 
 ## Getting started
 
-`$ npm install react-native-react-native-ping --save`
+`$ npm install react-native-ping --save`
+or
+`$ yarn add react-native-ping`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-react-native-ping`
+`$ react-native link react-native-ping`
 
 ### Manual installation
 
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-react-native-ping` and add `RNReactNativePing.xcodeproj`
+2. Go to `node_modules` ➜ `react-native-ping` and add `RNReactNativePing.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNReactNativePing.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -34,13 +36,13 @@
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
 
 ```
-  compile project(':react-native-react-native-ping')
+  compile project(':react-native-ping')
 ```
 
 ## Usage
 
 ```javascript
-import RNReactNativePing from 'react-native-react-native-ping';
+import RNReactNativePing from 'react-native-ping';
 
 // TODO: What to do with the module?
 RNReactNativePing;
