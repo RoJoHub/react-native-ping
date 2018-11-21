@@ -4617,9 +4617,9 @@ react-is@^16.6.1:
   integrity sha512-u7FDWtthB4rWibG/+mFbVd5FvdI20yde86qKGx4lVUTWmPlSWQ4QxbBIrrs+HnXGbxOUlUzTAP/VDmvCwaP2yA==
 
 react-native-ping@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/react-native-ping/-/react-native-ping-1.0.1.tgz#08419dd83dad80e06aa9468e549812559f564f43"
-  integrity sha512-CdeJ2Ix+CjK5Kl0v0LXgSWMpfaLyOvz5TFwyTaceBqzuQV8lYJJBvb7gdlvIvEQV/K0PAtokTn7ym7i1KtEgZA==
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/react-native-ping/-/react-native-ping-1.0.3.tgz#592b17d17162cfadc443d30c2f4b61f931f59917"
+  integrity sha512-SqlpWcoSGaq8AvX1dmi/wWAF8N+tqBaikwERzN5HG0HhzaS5fCKebpqhD9nHJPQF3MilTnN+YL5ZSmsQEGzmhg==
 
 react-native@0.57.5:
   version "0.57.5"
