@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':react-native-ping'
+project(':react-native-ping').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ping/android')
+
+include ':app'
