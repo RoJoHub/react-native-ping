@@ -24,7 +24,7 @@ RCT_EXPORT_METHOD(
         }
         
         [weakSelf.ping startPingingWithBlock:^(GBPingSummary *summary) {
-            resolve(@(summary.ttl));
+            resolve(@(@(summary.rtt*1000).intValue));
             [weakSelf.ping stop];
             weakSelf.ping=nil;
         } fail:^(NSError *_Nonnull error) {
