@@ -57,55 +57,34 @@ or
 
 ## Usage
 
+### Get RTT (Round-trip delay time)
+
 ```javascript
 import Ping from 'react-native-ping';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  buttonText: {
-    fontSize: 24,
-    padding: 32
-  },
-  msText: {
-    fontSize: 24,
-    padding: 32
-  }
-});
+...
 
-// TODO: What to do with the module?
-export default class App extends Component {
-  state = {
-    ipAddress: '114.114.114.114',
-    ms: ''
-  };
-  onPressButton = async () => {
-    const ms = await Ping.start('114.114.114.114');
-    this.setState({ ms });
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <TextInput
-          style={{
-            height: 40,
-            borderColor: 'gray',
-            borderWidth: 1,
-            alignSelf: 'stretch'
-          }}
-          onChangeText={ipAddress => this.setState({ ipAddress })}
-          value={this.state.ipAddress}
-        />
-        <TouchableOpacity onPress={this.onPressButton}>
-          <Text style={styles.buttonText}>Ping</Text>
-        </TouchableOpacity>
-        <Text style={styles.msText}>ms:{this.state.ms}</Text>
-      </View>
-    );
-  }
-}
+const ms = await Ping.start('114.114.114.114');
+```
+
+### Get Traffic Stats (Only iOS)
+
+| Property             | Description               |
+| -------------------- | ------------------------- |
+| receivedNetworkSpeed | Download Speed per second |
+| sendNetworkSpeed     | Upload Speed per second   |
+| receivedNetworkTotal | Download Total            |
+| sendNetworkTotal     | Upload Total              |
+
+```javascript
+import Ping from 'react-native-ping';
+
+...
+
+const {
+  receivedNetworkSpeed,
+  sendNetworkSpeed,
+  receivedNetworkTotal,
+  sendNetworkTotal
+} = await Ping.getTrafficStats();
 ```

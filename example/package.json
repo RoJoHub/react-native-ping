@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "16.6.1",
     "react-native": "0.57.5",
-    "react-native-ping": "^1.0.1"
+    "react-native-ping": "file:../"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

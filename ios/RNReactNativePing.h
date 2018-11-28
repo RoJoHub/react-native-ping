@@ -8,4 +8,3 @@
 @interface RNReactNativePing : NSObject <RCTBridgeModule>
 
 @end
-  
