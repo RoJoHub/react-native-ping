@@ -182,42 +182,42 @@ static LHNetwork *instance = nil;
     }
     _oBytes = oBytes;
 
-    //
-    //    NSLog(@"sentBytes==%@",sentBytes);
-    NSString *networkFlow = [self bytesToAvaiUnit:allFlow];
-    //
-    NSLog(@"networkFlow==%@", networkFlow);
-    //
-    NSString *wifiReceived = [self bytesToAvaiUnit:wifiIBytes];
+    // //
+    // //    NSLog(@"sentBytes==%@",sentBytes);
+    // NSString *networkFlow = [self bytesToAvaiUnit:allFlow];
+    // //
+    // NSLog(@"networkFlow==%@", networkFlow);
+    // //
+    // NSString *wifiReceived = [self bytesToAvaiUnit:wifiIBytes];
 
-    NSLog(@"wifiReceived==%@", wifiReceived);
+    // NSLog(@"wifiReceived==%@", wifiReceived);
 
-    NSString *wifiSent = [self bytesToAvaiUnit:wifiOBytes];
+    // NSString *wifiSent = [self bytesToAvaiUnit:wifiOBytes];
 
-    NSLog(@"wifiSent==%@", wifiSent);
+    // NSLog(@"wifiSent==%@", wifiSent);
 
-    NSString *wifiBytes = [self bytesToAvaiUnit:wifiFlow];
-    //
-    NSLog(@"wifiBytes==%@", wifiBytes);
-    NSString *wwanReceived = [self bytesToAvaiUnit:wwanIBytes];
+    // NSString *wifiBytes = [self bytesToAvaiUnit:wifiFlow];
+    // //
+    // NSLog(@"wifiBytes==%@", wifiBytes);
+    // NSString *wwanReceived = [self bytesToAvaiUnit:wwanIBytes];
 
-    NSLog(@"wwanReceived==%@", wwanReceived);
-    NSString *wwanSent = [self bytesToAvaiUnit:wwanOBytes];
+    // NSLog(@"wwanReceived==%@", wwanReceived);
+    // NSString *wwanSent = [self bytesToAvaiUnit:wwanOBytes];
 
-    NSLog(@"wwanSent==%@", wwanSent);
-    NSString *wwanBytes = [self bytesToAvaiUnit:wwanFlow];
-    //
-    NSLog(@"wwanBytes==%@", wwanBytes);
+    // NSLog(@"wwanSent==%@", wwanSent);
+    // NSString *wwanBytes = [self bytesToAvaiUnit:wwanFlow];
+    // //
+    // NSLog(@"wwanBytes==%@", wwanBytes);
 
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 
-    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
+    // [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
 
-    NSDate *datenow = [NSDate date];
+    // NSDate *datenow = [NSDate date];
 
-    NSString *nowtimeStr = [formatter stringFromDate:datenow];
+    // NSString *nowtimeStr = [formatter stringFromDate:datenow];
 
-    NSLog(@"time 2 =  %@", nowtimeStr);
+    // NSLog(@"time 2 =  %@", nowtimeStr);
 }
 
 @end

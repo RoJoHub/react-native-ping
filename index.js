@@ -1,4 +1,4 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules } from 'react-native';
 
 const { RNReactNativePing } = NativeModules;
 class Ping {
@@ -7,9 +7,6 @@ class Ping {
     return result;
   }
   static async getTrafficStats() {
-    if (Platform.OS !== 'ios') {
-      return;
-    }
     const result = await RNReactNativePing.getTrafficStats();
     return result;
   }

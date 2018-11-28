@@ -41,6 +41,9 @@ export default class App extends Component {
   onPressButton = async () => {
     const ms = await Ping.start('114.114.114.114');
     this.setState({ ms });
+    const result = await Ping.getTrafficStats();
+    console.log(result);
+    
   };
   render() {
     return (
