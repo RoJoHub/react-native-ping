@@ -67,7 +67,7 @@ import Ping from 'react-native-ping';
 const ms = await Ping.start('114.114.114.114');
 ```
 
-### Get Traffic Stats (Only iOS)
+### Get Traffic Stats
 
 | Property             | Description               |
 | -------------------- | ------------------------- |
