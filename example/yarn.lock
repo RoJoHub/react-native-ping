@@ -4603,7 +4603,7 @@ react-deep-force-update@^1.0.0:
   resolved "https://registry.npmjs.org/react-deep-force-update/-/react-deep-force-update-1.1.2.tgz#3d2ae45c2c9040cbb1772be52f8ea1ade6ca2ee1"
   integrity sha512-WUSQJ4P/wWcusaH+zZmbECOk7H5N2pOIl0vzheeornkIMhu+qrNdGFm0bDZLCb0hSF0jf/kH1SgkNGfBdTc4wA==
 
-react-devtools-core@^3.4.0:
+react-devtools-core@^3.4.2:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-3.4.3.tgz#1a06b7dc546d41ecf8dc4fbabea2d79d339353cf"
   integrity sha512-t3f6cRH5YSKv8qjRl1Z+1e0OwBZwJSdOAhJ9QAJdVKML7SmqAKKv3DxF+Ue03pE1N2UipPsLmaNcPzzMjIdZQg==
@@ -4619,10 +4619,10 @@ react-is@^16.6.3:
 "react-native-ping@file:..":
   version "1.1.1"
 
-react-native@0.57.5:
-  version "0.57.5"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.57.5.tgz#f1dbcbf1f889845fba954f3e0d47e61cf89d41d9"
-  integrity sha512-b/RNXcifPr4CrYZEAWmyD+W//KWZkEO4p6/TOZmLPP4M+vkqWqt0wmSW6JWn1bTEeZmRjx1JJZeVtYmtIVl/KA==
+react-native@0.57.8:
+  version "0.57.8"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.57.8.tgz#1a840fbe144cd3902cc14313a783ce28efc48cb9"
+  integrity sha512-K6DAMTPTq+lxVYC73y4Kh/bgLajddBaIKzwsVeV4JOoS1Fdq48/ISXD3vApV+x+/IBVTXnrT9qlA+9U6MMZCqA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     absolute-path "^0.0.0"
@@ -4664,7 +4664,7 @@ react-native@0.57.5:
     promise "^7.1.1"
     prop-types "^15.5.8"
     react-clone-referenced-element "^1.0.1"
-    react-devtools-core "^3.4.0"
+    react-devtools-core "^3.4.2"
     react-timer-mixin "^0.13.2"
     regenerator-runtime "^0.11.0"
     rimraf "^2.5.4"
@@ -4672,7 +4672,7 @@ react-native@0.57.5:
     serve-static "^1.13.1"
     shell-quote "1.6.1"
     stacktrace-parser "^0.1.3"
-    ws "^1.1.0"
+    ws "^1.1.5"
     xcode "^1.0.0"
     xmldoc "^0.4.0"
     yargs "^9.0.0"
@@ -5861,7 +5861,7 @@ write-file-atomic@^2.1.0:
     imurmurhash "^0.1.4"
     signal-exit "^3.0.2"
 
-ws@^1.1.0:
+ws@^1.1.0, ws@^1.1.5:
   version "1.1.5"
   resolved "https://registry.npmjs.org/ws/-/ws-1.1.5.tgz#cbd9e6e75e09fc5d2c90015f21f0c40875e0dd51"
   integrity sha512-o3KqipXNUdS7wpQzBHSe180lBGO60SoK0yVo3CYJgb2MkobuWuBX6dhkYP5ORCLd55y+SaflMOV5fqAB53ux4w==
