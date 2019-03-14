@@ -55,6 +55,28 @@ or
   compile project(':react-native-ping')
 ```
 
+4. (optional)
+
+You can override this settings by adding a Project-wide gradle configuration properties for use by all modules in your ReactNative project by adding the below to android/build.gradle file,
+
+```gradle
+buildscript {...}
+
+allprojects {...}
+
+/**
+* Project-wide gradle configuration properties for use by all modules
+*/
+ext {
+    compileSdkVersion           = 26
+    targetSdkVersion            = 26
+    buildToolsVersion           = "26.0.2"
+    googlePlayServicesVersion   = "12.0.1"
+    googlePlayServicesVisionVersion = "15.0.2"
+    supportLibVersion           = "27.1.0"
+}
+```
+
 ## Usage
 
 ### Get RTT (Round-trip delay time)
