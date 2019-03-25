@@ -163,6 +163,7 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
 - (void)setupWithBlock:(StartupCallback)callback
 {
+    __block NSError *error;
     //error out of its already setup
     if (self.isReady) {
         if (self.debug) {
@@ -171,7 +172,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
         //notify about error and return
         dispatch_async(dispatch_get_main_queue(), ^{
-            callback(NO, nil);
+            error = [NSError errorWithDomain:@"Can't setup.The previous request is still running." code:-1 userInfo:nil];
+            callback(NO, error);
         });
         return;
     }
@@ -184,7 +186,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
         //notify about error and return
         dispatch_async(dispatch_get_main_queue(), ^{
-            callback(NO, nil);
+            error = [NSError errorWithDomain:@"must set host before start." code:-1 userInfo:nil];
+            callback(NO, error);
         });
         return;
     }

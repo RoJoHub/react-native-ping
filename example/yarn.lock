@@ -3996,9 +3996,10 @@ react-deep-force-update@^1.0.0:
   version "1.1.2"
   resolved "https://registry.npmjs.org/react-deep-force-update/-/react-deep-force-update-1.1.2.tgz#3d2ae45c2c9040cbb1772be52f8ea1ade6ca2ee1"
 
-react-devtools-core@^3.4.2:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-3.4.3.tgz#1a06b7dc546d41ecf8dc4fbabea2d79d339353cf"
+react-devtools-core@^3.4.0:
+  version "3.6.1"
+  resolved "http://registry.npm.taobao.org/react-devtools-core/download/react-devtools-core-3.6.1.tgz#51af81ceada65209bbccb8b547a01187cd1cbf04"
+  integrity sha1-Ua+Bzq2mUgm7zLi1R6ARh80cvwQ=
   dependencies:
     shell-quote "^1.6.1"
     ws "^3.3.1"
@@ -4008,11 +4009,12 @@ react-is@^16.6.3:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.6.3.tgz#d2d7462fcfcbe6ec0da56ad69047e47e56e7eac0"
 
 "react-native-ping@file:..":
-  version "1.1.0"
+  version "1.1.3"
 
-react-native@0.57.7:
-  version "0.57.7"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.57.7.tgz#5b3af1c43366c41d8d8d2540fea8ce590060bca1"
+react-native@0.57.5:
+  version "0.57.5"
+  resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.57.5.tgz#f1dbcbf1f889845fba954f3e0d47e61cf89d41d9"
+  integrity sha1-8dvL8fiJhF+6lU8+DUfmHPidQdk=
   dependencies:
     "@babel/runtime" "^7.0.0"
     absolute-path "^0.0.0"
@@ -4054,7 +4056,7 @@ react-native@0.57.7:
     promise "^7.1.1"
     prop-types "^15.5.8"
     react-clone-referenced-element "^1.0.1"
-    react-devtools-core "^3.4.2"
+    react-devtools-core "^3.4.0"
     react-timer-mixin "^0.13.2"
     regenerator-runtime "^0.11.0"
     rimraf "^2.5.4"
@@ -4073,7 +4075,6 @@ react-proxy@^1.1.7:
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
-
 
 react-test-renderer@16.6.3:
   version "16.6.3"

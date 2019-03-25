@@ -34,7 +34,7 @@ RCT_EXPORT_METHOD(
 
     [self.ping setupWithBlock:^(BOOL success, NSError *_Nullable error) { //necessary to resolve hostname
         if (!success) {
-            reject(@"-1", @"域名解析失败", error);
+            reject(@"-1", error.domain, error);
             return;
         }
 
@@ -43,7 +43,7 @@ RCT_EXPORT_METHOD(
             [weakSelf.ping stop];
             weakSelf.ping = nil;
         } fail:^(NSError *_Nonnull error) {
-            reject(@"-1", @"ping失败", error);
+            reject(@"-1", error.domain, error);
             [weakSelf.ping stop];
             weakSelf.ping = nil;
         }];
