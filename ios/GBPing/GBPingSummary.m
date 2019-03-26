@@ -27,7 +27,7 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     GBPingSummary *copy = [[[self class] allocWithZone:zone] init];
-
+    
     copy.sequenceNumber = self.sequenceNumber;
     copy.payloadSize = self.payloadSize;
     copy.ttl = self.ttl;
@@ -35,7 +35,7 @@
     copy.sendDate = [self.sendDate copy];
     copy.receiveDate = [self.receiveDate copy];
     copy.status = self.status;
-
+    
     return copy;
 }
 
@@ -46,7 +46,7 @@
     if (self = [super init]) {
         self.status = GBPingStatusPending;
     }
-
+    
     return self;
 }
 

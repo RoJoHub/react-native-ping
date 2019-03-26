@@ -6,7 +6,7 @@
 
 @interface GBPingSummary : NSObject <NSCopying>
 
-    typedef enum {
+typedef enum {
     GBPingStatusPending,
     GBPingStatusSuccess,
     GBPingStatusFail,
