@@ -54,7 +54,9 @@ RCT_REMAP_METHOD(
     resolver:(RCTPromiseResolveBlock)resolve
     rejecter:(RCTPromiseRejectBlock)reject
     ) {
-    LHNetwork *instance = [LHNetwork shareNetworkSpeed];
+    // Prevent multiple calls from causing data confusion
+    LHNetwork *instance = [[LHNetwork alloc]init];
+    
     [instance checkNetworkflow];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), queue, ^{
         [instance checkNetworkflow];
