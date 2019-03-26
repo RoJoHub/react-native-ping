@@ -31,8 +31,8 @@ android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
     buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
     defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_TARGET_SDK_VERSION)
-        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
         versionCode 1
         versionName computeVersionName()
     }
