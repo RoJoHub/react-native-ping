@@ -9,11 +9,11 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.uimanager.PixelUtil;
 
 public class RNReactNativePingModule extends ReactContextBaseJavaModule {
-
+    private final String TIMEOUT_KEY = "timeout";
     private final ReactApplicationContext reactContext;
 
     public RNReactNativePingModule(ReactApplicationContext reactContext) {
@@ -22,13 +22,53 @@ public class RNReactNativePingModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void start(String ipAddress, Promise promise) {
-        try {
-            int rtt = PingUtil.getAvgRTT("http://" + ipAddress);
-            promise.resolve(Integer.valueOf(rtt));
-        } catch (Exception e) {
-            promise.reject(e);
+    public void start(final String ipAddress, ReadableMap option, final Promise promise) {
+        if (ipAddress == null || (ipAddress != null && ipAddress.length() == 0)) {
+            LHDefinition.PING_ERROR_CODE error = LHDefinition.PING_ERROR_CODE.HostErrorNotSetHost;
+            promise.reject(error.getCode(), error.getMessage(), null);
+            return;
         }
+
+        final boolean[] isFinish = {false};
+        int timeout = 1000;
+        if (option.hasKey(TIMEOUT_KEY)) {
+            timeout = option.getInt(TIMEOUT_KEY);
+        }
+        final int finalTimeout = timeout;
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (isFinish[0]) {
+                        return;//Prevent multiple calls
+                    }
+                    int rtt = PingUtil.getAvgRTT(ipAddress, 1, finalTimeout);
+                    promise.resolve(Integer.valueOf(rtt));
+                    isFinish[0] = true;
+                } catch (Exception e) {
+                    if (isFinish[0]) {//Prevent multiple calls
+                        return;
+                    }
+                    LHDefinition.PING_ERROR_CODE error =
+                            LHDefinition.PING_ERROR_CODE.HostErrorUnknown;
+                    promise.reject(error.getCode(), error.getMessage(), null);
+                    isFinish[0] = true;
+                }
+            }
+        });
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (isFinish[0]) {//Prevent multiple calls
+                    return;
+                }
+                LHDefinition.PING_ERROR_CODE error = LHDefinition.PING_ERROR_CODE.Timeout;
+                promise.reject(error.getCode(), error.getMessage(), null);
+                isFinish[0] = true;
+            }
+        }, timeout);
+
     }
 
     @ReactMethod
@@ -44,7 +84,8 @@ public class RNReactNativePingModule extends ReactContextBaseJavaModule {
                 long newReceivedTotal = TrafficStats.getTotalRxBytes();
                 long newSendTotal = TrafficStats.getTotalTxBytes();
 
-                String receivedNetworkSpeed = bytesToAvaiUnit(newReceivedTotal - receiveTotal) + "/s";
+                String receivedNetworkSpeed = bytesToAvaiUnit(newReceivedTotal - receiveTotal) +
+                        "/s";
                 String sendNetworkSpeed = bytesToAvaiUnit(newSendTotal - sendTotal) + "/s";
                 WritableMap map = Arguments.createMap();
 
