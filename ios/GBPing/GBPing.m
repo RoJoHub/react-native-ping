@@ -3,6 +3,7 @@
 //
 
 #import "GBPing.h"
+#import "LHDefinition.h"
 
 #if TARGET_OS_EMBEDDED || TARGET_IPHONE_SIMULATOR
     #import <CFNetwork/CFNetwork.h>
@@ -163,7 +164,6 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
 - (void)setupWithBlock:(StartupCallback)callback
 {
-    __block NSError *error;
     //error out of its already setup
     if (self.isReady) {
         if (self.debug) {
@@ -172,8 +172,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
         //notify about error and return
         dispatch_async(dispatch_get_main_queue(), ^{
-            error = [NSError errorWithDomain:@"Can't setup.The previous request is still running." code:-1 userInfo:nil];
-            callback(NO, error);
+            DEFINE_NSError(runningError, PingUtil_Message_PreviousPingIsStillRunning)
+            callback(NO, runningError);
         });
         return;
     }
@@ -186,8 +186,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
         //notify about error and return
         dispatch_async(dispatch_get_main_queue(), ^{
-            error = [NSError errorWithDomain:@"must set host before start." code:-1 userInfo:nil];
-            callback(NO, error);
+            DEFINE_NSError(hostError, PingUtil_Message_HostErrorNotSetHost)
+            callback(NO, hostError);
         });
         return;
     }
@@ -233,7 +233,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
             //notify about error and return
             dispatch_async(dispatch_get_main_queue(), ^{
-                callback(NO, error);
+                DEFINE_NSError(hostUnknowError, PingUtil_Message_HostErrorUnknown)
+                callback(NO, hostUnknowError);
             });
 
             //just incase
@@ -276,7 +277,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
             //notify about error and return
             dispatch_async(dispatch_get_main_queue(), ^{
-                callback(NO, [NSError errorWithDomain:(NSString *)kCFErrorDomainCFNetwork code:kCFHostErrorHostNotFound userInfo:nil]);
+                DEFINE_NSError(hostError, PingUtil_Message_HostErrorHostNotFound)
+                callback(NO, hostError);
             });
             return;
         }
@@ -308,7 +310,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
 
             //notify about error and close
             dispatch_async(dispatch_get_main_queue(), ^{
-                callback(NO, [NSError errorWithDomain:NSPOSIXErrorDomain code:err userInfo:nil]);
+                DEFINE_NSError(unknownError, PingUtil_Message_Unknown)
+                callback(NO, unknownError);
             });
             return;
         }
@@ -458,7 +461,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
         @synchronized(self) {
             if (!self.isStopped) {
                 if (self.failBlock) {
-                    _failBlock([NSError errorWithDomain:NSPOSIXErrorDomain code:err userInfo:nil]);
+                    DEFINE_NSError(unknownError, PingUtil_Message_Unknown)
+                    _failBlock(unknownError);
                 }
                 if (self.delegate && [self.delegate respondsToSelector:@selector(ping:didFailWithError:)]) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -622,7 +626,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
             GBPingSummary *pingSummaryCopyAfterFailure = [newPingSummary copy];
 
             if (self.failBlock) {
-                self.failBlock([NSError errorWithDomain:NSPOSIXErrorDomain code:err userInfo:nil]);
+                DEFINE_NSError(unknownError, PingUtil_Message_Unknown)
+                self.failBlock(unknownError);
             }
             //notify delegate
             if (self.delegate && [self.delegate respondsToSelector:@selector(ping:didFailToSendPingWithSummary:error:)]) {

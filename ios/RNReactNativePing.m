@@ -2,88 +2,93 @@
 #import "RNReactNativePing.h"
 #import "GBPing.h"
 #import "LHNetwork.h"
+#import "LHDefinition.h"
 
 @interface RNReactNativePing ()
-
-@property (nonatomic, strong) GBPing *ping;
-
+@property (nonatomic,strong) dispatch_queue_t queue;
 @end
 
 @implementation RNReactNativePing
-{
-    bool hasListeners;
-    dispatch_queue_t queue;
-}
+
 
 RCT_EXPORT_MODULE()
 - (dispatch_queue_t)methodQueue
 {
-    if (!queue) {
-        queue = dispatch_queue_create("com.pomato.React.RNReactNativePing", DISPATCH_QUEUE_SERIAL);
+    if (!_queue) {
+        _queue = dispatch_queue_create("com.pomato.React.RNReactNativePing", DISPATCH_QUEUE_SERIAL);
     }
-    return queue;
+    return _queue;
 }
 
 RCT_EXPORT_METHOD(
-    start:(NSString *)ipAddress
-    resolver:(RCTPromiseResolveBlock)resolve
-    rejecter:(RCTPromiseRejectBlock)reject
-    ) {
-    self.ping.host = ipAddress;
-    __weak __typeof(self)weakSelf = self;
+                  start:(NSString *)ipAddress
+                  option:(NSDictionary *)option
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject
+                  ) {
+    __block GBPing * ping = [[GBPing alloc] init];
+    ping.timeout = 1.0;
+    ping.pingPeriod = 0.9;
+    ping.host = ipAddress;
+    NSNumber *nsTimeout = option[@"timeout"];
+    unsigned long long timeout = 1000.0;
+    if (nsTimeout) {
+        timeout = nsTimeout.unsignedLongLongValue;
+    }
+    
 
-    [self.ping setupWithBlock:^(BOOL success, NSError *_Nullable error) { //necessary to resolve hostname
+    [ping setupWithBlock:^(BOOL success, NSError *_Nullable err) {
         if (!success) {
-            reject(@"-1", error.domain, error);
+            reject(@(err.code).stringValue,err.domain,err);
             return;
         }
-
-        [weakSelf.ping startPingingWithBlock:^(GBPingSummary *summary) {
+        [ping startPingingWithBlock:^(GBPingSummary *summary) {
+            if (!ping) {
+                return;
+            }
             resolve(@(@(summary.rtt * 1000).intValue));
-            [weakSelf.ping stop];
-            weakSelf.ping = nil;
+            [ping stop];
+            ping = nil;
         } fail:^(NSError *_Nonnull error) {
-            reject(@"-1", error.domain, error);
-            [weakSelf.ping stop];
-            weakSelf.ping = nil;
+            if (!ping) {
+                return;
+            }
+            reject(@(error.code).stringValue,error.domain,error);
+            [ping stop];
+            ping = nil;
         }];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_MSEC)), _queue, ^{
+            if (!ping) {
+                return;
+            }
+            ping = nil;
+            DEFINE_NSError(timeoutError,PingUtil_Message_Timeout)
+            reject(@(timeoutError.code).stringValue,timeoutError.domain,timeoutError);
+        });
     }];
 }
 RCT_REMAP_METHOD(
-    getTrafficStats,
-    resolver:(RCTPromiseResolveBlock)resolve
-    rejecter:(RCTPromiseRejectBlock)reject
-    ) {
+                 getTrafficStats,
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject
+                 ) {
     // Prevent multiple calls from causing data confusion
     LHNetwork *instance = [[LHNetwork alloc]init];
     
     [instance checkNetworkflow];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), queue, ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), _queue, ^{
         [instance checkNetworkflow];
-
+        
         NSString *receivedNetworkSpeed = instance.receivedNetworkSpeed;
         NSString *receivedNetworkTotal = instance.receivedNetworkTotal;
         NSString *sendNetworkSpeed = instance.sendNetworkSpeed;
         NSString *sendNetworkTotal = instance.sendNetworkTotal;
         resolve(@{
-            @"receivedNetworkSpeed": receivedNetworkSpeed,
-            @"receivedNetworkTotal": receivedNetworkTotal,
-            @"sendNetworkSpeed": sendNetworkSpeed,
-            @"sendNetworkTotal": sendNetworkTotal
-        });
+                  @"receivedNetworkSpeed": receivedNetworkSpeed,
+                  @"receivedNetworkTotal": receivedNetworkTotal,
+                  @"sendNetworkSpeed": sendNetworkSpeed,
+                  @"sendNetworkTotal": sendNetworkTotal
+                  });
     });
 }
-#pragma mark -
-#pragma mark Getter
-#pragma mark -
-- (GBPing *)ping
-{
-    if (!_ping) {
-        _ping = [[GBPing alloc] init];
-        _ping.timeout = 1.0;
-        _ping.pingPeriod = 0.9;
-    }
-    return _ping;
-}
-
 @end
