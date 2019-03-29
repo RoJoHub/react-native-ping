@@ -39,11 +39,18 @@ export default class App extends Component {
     ms: ''
   };
   onPressButton = async () => {
-    const ms = await Ping.start('114.114.114.114');
+    const option = { timeout: 1000 };
+    let ms;
+    try {
+      ms = await Ping.start(this.state.ipAddress, option);
+      console.log(ms);
+    } catch (error) {
+      console.log(error.code, error.message);
+    }
+
     this.setState({ ms });
     const result = await Ping.getTrafficStats();
     console.log(result);
-    
   };
   render() {
     return (
