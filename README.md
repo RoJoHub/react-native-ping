@@ -86,8 +86,35 @@ import Ping from 'react-native-ping';
 
 ...
 
-const ms = await Ping.start('114.114.114.114');
+try {
+  /**
+   *
+   * Get RTT (Round-trip delay time)
+   *
+   * @static
+   * @param {string} ipAddress - For example : 8.8.8.8
+   * @param {Object} option - Some optional operations
+   * @param {number} option.timeout - timeout
+   * @returns
+   * @memberof Ping
+   */
+  const ms = await Ping.start('114.114.114.114',{ timeout: 1000 });
+  console.log(ms);
+} catch (error) {
+  console.log('special code',error.code, error.message);
+}
 ```
+
+#### About Error
+
+| Code | Message                                    | platform    |
+| ---- | ------------------------------------------ | ----------- |
+| "0"  | PingUtil_Message_Timeout                   | iOS,Android |
+| "1"  | PingUtil_Message_PreviousPingIsStillRunning | /           |
+| "2"  | PingUtil_Message_HostErrorNotSetHost       | iOS,Android |
+| "3"  | PingUtil_Message_HostErrorUnknown          | iOS,Android |
+| "4"  | PingUtil_Message_HostErrorHostNotFound     | Only iOS    |
+| "5"  | PingUtil_Message_Unknown                   | Only iOS    |
 
 ### Get Traffic Stats
 
