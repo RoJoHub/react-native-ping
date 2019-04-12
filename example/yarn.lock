@@ -9,7 +9,7 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.4.3":
+"@babel/core@7.4.3", "@babel/core@^7.0.0", "@babel/core@^7.1.0":
   version "7.4.3"
   resolved "http://registry.npm.taobao.org/@babel/core/download/@babel/core-7.4.3.tgz#198d6d3af4567be3989550d97e068de94503074f"
   integrity sha1-GY1tOvRWe+OYlVDZfgaN6UUDB08=
@@ -607,7 +607,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.3":
+"@babel/runtime@7.4.3", "@babel/runtime@^7.0.0":
   version "7.4.3"
   resolved "http://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
   integrity sha1-eYiORSA0IjrZYJGHoK0f4NKtS9w=
@@ -1187,10 +1187,10 @@ aws4@^1.8.0:
   resolved "http://registry.npm.taobao.org/aws4/download/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha1-8OAD2cqef1nHpQiUXXsu+aBKVC8=
 
-babel-jest@^24.7.1:
+babel-jest@24.7.1, babel-jest@^24.7.1:
   version "24.7.1"
-  resolved "http://registry.npm.taobao.org/babel-jest/download/babel-jest-24.7.1.tgz#73902c9ff15a7dfbdc9994b0b17fcefd96042178"
-  integrity sha1-c5Asn/FaffvcmZSwsX/O/ZYEIXg=
+  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-24.7.1.tgz#73902c9ff15a7dfbdc9994b0b17fcefd96042178"
+  integrity sha512-GPnLqfk8Mtt0i4OemjWkChi73A3ALs4w2/QbG64uAj8b5mmwzxc7jbJVRZt8NJkxi6FopVHog9S3xX6UJKb2qg==
   dependencies:
     "@jest/transform" "^24.7.1"
     "@jest/types" "^24.7.0"
@@ -3378,10 +3378,10 @@ jest-worker@^24.0.0-alpha.6, jest-worker@^24.6.0:
     merge-stream "^1.0.1"
     supports-color "^6.1.0"
 
-jest@^24.7.1:
+jest@24.7.1:
   version "24.7.1"
-  resolved "http://registry.npm.taobao.org/jest/download/jest-24.7.1.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Fjest%2Fdownload%2Fjest-24.7.1.tgz#0d94331cf510c75893ee32f87d7321d5bf8f2501"
-  integrity sha1-DZQzHPUQx1iT7jL4fXMh1b+PJQE=
+  resolved "https://registry.yarnpkg.com/jest/-/jest-24.7.1.tgz#0d94331cf510c75893ee32f87d7321d5bf8f2501"
+  integrity sha512-AbvRar5r++izmqo5gdbAjTeA6uNRGoNRuj5vHB0OnDXo2DXWZJVuaObiGgtlvhKb+cWy2oYbQSfxv7Q7GjnAtA==
   dependencies:
     import-local "^2.0.0"
     jest-cli "^24.7.1"
@@ -3915,10 +3915,10 @@ metro-react-native-babel-preset@0.51.1:
     metro-babel7-plugin-react-transform "0.51.1"
     react-transform-hmr "^1.0.4"
 
-metro-react-native-babel-preset@^0.53.1:
+metro-react-native-babel-preset@0.53.1:
   version "0.53.1"
-  resolved "http://registry.npm.taobao.org/metro-react-native-babel-preset/download/metro-react-native-babel-preset-0.53.1.tgz#6cd9e41a1b9a6e210e71ef2adf114219b4eaf2ec"
-  integrity sha1-bNnkGhuabiEOce8q3xFCGbTq8uw=
+  resolved "https://registry.yarnpkg.com/metro-react-native-babel-preset/-/metro-react-native-babel-preset-0.53.1.tgz#6cd9e41a1b9a6e210e71ef2adf114219b4eaf2ec"
+  integrity sha512-Uf8EGL8kIPhDkoSdAAysNPxPQclUS2R1QC4cwnc8bkk2f6yqGn+1CorfiY9AaqlLEth5mKQqdtRYFDTFfB9QyA==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.0.0"
     "@babel/plugin-proposal-export-default-from" "^7.0.0"
