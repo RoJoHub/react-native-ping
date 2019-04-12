@@ -25,7 +25,7 @@ public class RNReactNativePingModule extends ReactContextBaseJavaModule {
     public void start(final String ipAddress, ReadableMap option, final Promise promise) {
         if (ipAddress == null || (ipAddress != null && ipAddress.length() == 0)) {
             LHDefinition.PING_ERROR_CODE error = LHDefinition.PING_ERROR_CODE.HostErrorNotSetHost;
-            promise.reject(error.getCode(), error.getMessage(), null);
+            promise.reject(error.getCode(), error.getMessage());
             return;
         }
 
@@ -51,7 +51,7 @@ public class RNReactNativePingModule extends ReactContextBaseJavaModule {
                     }
                     LHDefinition.PING_ERROR_CODE error =
                             LHDefinition.PING_ERROR_CODE.HostErrorUnknown;
-                    promise.reject(error.getCode(), error.getMessage(), null);
+                    promise.reject(error.getCode(), error.getMessage());
                     isFinish[0] = true;
                 }
             }
@@ -64,7 +64,7 @@ public class RNReactNativePingModule extends ReactContextBaseJavaModule {
                     return;
                 }
                 LHDefinition.PING_ERROR_CODE error = LHDefinition.PING_ERROR_CODE.Timeout;
-                promise.reject(error.getCode(), error.getMessage(), null);
+                promise.reject(error.getCode(), error.getMessage());
                 isFinish[0] = true;
             }
         }, timeout);
