@@ -7,8 +7,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.4",
+    "react": "16.13.1",
+    "react-native": "0.62.2",
     "react-native-ping": "file:../"
   },
   "devDependencies": {
@@ -17,7 +17,7 @@
     "babel-jest": "^24.7.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.13.1"
   },
   "jest": {
     "preset": "react-native"
