@@ -3,6 +3,7 @@ package com.reactlibrary;
 
 import android.net.TrafficStats;
 import android.os.Handler;
+import android.os.HandlerThread;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
@@ -15,10 +16,12 @@ import com.facebook.react.bridge.WritableMap;
 public class RNReactNativePingModule extends ReactContextBaseJavaModule {
     private final String TIMEOUT_KEY = "timeout";
     private final ReactApplicationContext reactContext;
+    HandlerThread handlerThread = new HandlerThread("HandlerThread");
 
     public RNReactNativePingModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+        handlerThread.start();
     }
 
     @ReactMethod
@@ -35,7 +38,9 @@ public class RNReactNativePingModule extends ReactContextBaseJavaModule {
             timeout = option.getInt(TIMEOUT_KEY);
         }
         final int finalTimeout = timeout;
-        new Handler().post(new Runnable() {
+
+        Handler mHandler = new Handler(handlerThread.getLooper());
+        mHandler.post(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -57,7 +62,7 @@ public class RNReactNativePingModule extends ReactContextBaseJavaModule {
             }
         });
 
-        new Handler().postDelayed(new Runnable() {
+        mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (isFinish[0]) {//Prevent multiple calls
