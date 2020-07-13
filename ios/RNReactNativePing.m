@@ -34,6 +34,7 @@ RCT_EXPORT_METHOD(
     unsigned long long timeout = 1000.0;
     if (nsTimeout) {
         timeout = nsTimeout.unsignedLongLongValue;
+        ping.timeout = timeout;
     }
     
 

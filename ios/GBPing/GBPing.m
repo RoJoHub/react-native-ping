@@ -374,6 +374,14 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
     buffer = malloc(kBufferSize);
     assert(buffer);
 
+    //set socket timeout
+    struct timeval tv;
+    tv.tv_sec = self.timeout / 1000;
+    tv.tv_usec = 0;
+    if (setsockopt(self.socket, SOL_SOCKET, SO_RCVTIMEO,&tv,sizeof(tv)) < 0) {
+        NSLog(@"Set Timeput Error");
+    }
+    
     //read the data.
     addrLen = sizeof(addr);
     bytesRead = recvfrom(self.socket, buffer, kBufferSize, 0, (struct sockaddr *)&addr, &addrLen);
