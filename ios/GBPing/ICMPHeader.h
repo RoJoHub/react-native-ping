@@ -18,16 +18,16 @@
 // IP header structure:
 
 struct IPHeader {
-    uint8_t versionAndHeaderLength;
-    uint8_t differentiatedServices;
-    uint16_t totalLength;
-    uint16_t identification;
-    uint16_t flagsAndFragmentOffset;
-    uint8_t timeToLive;
-    uint8_t protocol;
-    uint16_t headerChecksum;
-    uint8_t sourceAddress[4];
-    uint8_t destinationAddress[4];
+    uint8_t     versionAndHeaderLength;
+    uint8_t     differentiatedServices;
+    uint16_t    totalLength;
+    uint16_t    identification;
+    uint16_t    flagsAndFragmentOffset;
+    uint8_t     timeToLive;
+    uint8_t     protocol;
+    uint16_t    headerChecksum;
+    uint8_t     sourceAddress[4];
+    uint8_t     destinationAddress[4];
     // options...
     // data...
 };
@@ -60,11 +60,11 @@ enum {
 // ICMP header structure:
 
 struct ICMPHeader {
-    uint8_t type;
-    uint8_t code;
-    uint16_t checksum;
-    uint16_t identifier;
-    uint16_t sequenceNumber;
+    uint8_t     type;
+    uint8_t     code;
+    uint16_t    checksum;
+    uint16_t    identifier;
+    uint16_t    sequenceNumber;
     // data...
 };
 typedef struct ICMPHeader ICMPHeader;
@@ -75,5 +75,6 @@ __Check_Compile_Time(offsetof(ICMPHeader, code) == 1);
 __Check_Compile_Time(offsetof(ICMPHeader, checksum) == 2);
 __Check_Compile_Time(offsetof(ICMPHeader, identifier) == 4);
 __Check_Compile_Time(offsetof(ICMPHeader, sequenceNumber) == 6);
+
 
 #endif
