@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.reactlibrary.LHPing;
 
 import android.support.v4.util.ArrayMap;
 
