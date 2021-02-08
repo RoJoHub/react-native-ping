@@ -9,7 +9,7 @@
   dependencies:
     "@babel/highlight" "^7.12.13"
 
-"@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.7.5", "@babel/core@^7.8.4":
+"@babel/core@7.12.13", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.7.5":
   version "7.12.13"
   resolved "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.12.13.tgz?cache=0&sync_timestamp=1612314761804&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcore%2Fdownload%2F%40babel%2Fcore-7.12.13.tgz#b73a87a3a3e7d142a66248bf6ad88b9ceb093425"
   integrity sha1-tzqHo6Pn0UKmYki/atiLnOsJNCU=
@@ -610,7 +610,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.8.4":
+"@babel/runtime@7.12.13", "@babel/runtime@^7.0.0", "@babel/runtime@^7.8.4":
   version "7.12.13"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
   integrity sha1-CiFFI1KwJULbD/uSisLTyny21m0=
@@ -1044,10 +1044,10 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
-"@react-native-community/eslint-config@^1.1.0":
+"@react-native-community/eslint-config@1.1.0":
   version "1.1.0"
-  resolved "https://registry.npm.taobao.org/@react-native-community/eslint-config/download/@react-native-community/eslint-config-1.1.0.tgz#2dacad06dd44d13e778510864473fc6091f080c0"
-  integrity sha1-LaytBt1E0T53hRCGRHP8YJHwgMA=
+  resolved "https://registry.yarnpkg.com/@react-native-community/eslint-config/-/eslint-config-1.1.0.tgz#2dacad06dd44d13e778510864473fc6091f080c0"
+  integrity sha512-hwb1hC28BhkwLwnO6vDISV6XZbipw2RIEhBVBN+pE7AUG9HjFXxoksiiOSoYgox9C8g86VJwHnKpak/3NnVBkQ==
   dependencies:
     "@react-native-community/eslint-plugin" "^1.1.0"
     "@typescript-eslint/eslint-plugin" "^2.25.0"
@@ -1536,10 +1536,10 @@ babel-eslint@10.1.0:
     eslint-visitor-keys "^1.0.0"
     resolve "^1.12.0"
 
-babel-jest@^25.1.0, babel-jest@^25.5.1:
+babel-jest@25.5.1, babel-jest@^25.5.1:
   version "25.5.1"
-  resolved "https://registry.npm.taobao.org/babel-jest/download/babel-jest-25.5.1.tgz?cache=0&sync_timestamp=1607352868791&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbabel-jest%2Fdownload%2Fbabel-jest-25.5.1.tgz#bc2e6101f849d6f6aec09720ffc7bc5332e62853"
-  integrity sha1-vC5hAfhJ1vauwJcg/8e8UzLmKFM=
+  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-25.5.1.tgz#bc2e6101f849d6f6aec09720ffc7bc5332e62853"
+  integrity sha512-9dA9+GmMjIzgPnYtkhBg73gOo/RHqPmLruP3BaGL4KEX3Dwz6pI8auSN8G8+iuEG90+GSswyKvslN+JYSaacaQ==
   dependencies:
     "@jest/transform" "^25.5.1"
     "@jest/types" "^25.5.0"
@@ -2507,10 +2507,10 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.npm.taobao.org/eslint-visitor-keys/download/eslint-visitor-keys-1.3.0.tgz?cache=0&sync_timestamp=1599829544231&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-1.3.0.tgz#30ebd1ef7c2fdff01c3a4f151044af25fab0523e"
   integrity sha1-MOvR73wv3/AcOk8VEESvJfqwUj4=
 
-eslint@^6.5.1:
+eslint@6.8.0:
   version "6.8.0"
-  resolved "https://registry.npm.taobao.org/eslint/download/eslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
-  integrity sha1-YiYtZylzn5J1cjgkMC+yJ8jJP/s=
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
+  integrity sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.10.0"
@@ -4060,10 +4060,10 @@ jest-worker@^25.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^25.1.0:
+jest@25.5.4:
   version "25.5.4"
-  resolved "https://registry.npm.taobao.org/jest/download/jest-25.5.4.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjest%2Fdownload%2Fjest-25.5.4.tgz#f21107b6489cfe32b076ce2adcadee3587acb9db"
-  integrity sha1-8hEHtkic/jKwds4q3K3uNYesuds=
+  resolved "https://registry.yarnpkg.com/jest/-/jest-25.5.4.tgz#f21107b6489cfe32b076ce2adcadee3587acb9db"
+  integrity sha512-hHFJROBTqZahnO+X+PMtT6G2/ztqAZJveGqz//FnWWHurizkD05PQGzRZOhF3XP6z7SJmL+5tCfW8qV06JypwQ==
   dependencies:
     "@jest/core" "^25.5.4"
     import-local "^3.0.2"
@@ -4470,7 +4470,7 @@ metro-minify-uglify@0.59.0:
   dependencies:
     uglify-es "^3.1.9"
 
-metro-react-native-babel-preset@0.59.0, metro-react-native-babel-preset@^0.59.0:
+metro-react-native-babel-preset@0.59.0:
   version "0.59.0"
   resolved "https://registry.npm.taobao.org/metro-react-native-babel-preset/download/metro-react-native-babel-preset-0.59.0.tgz?cache=0&sync_timestamp=1611843082014&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmetro-react-native-babel-preset%2Fdownload%2Fmetro-react-native-babel-preset-0.59.0.tgz#20e020bc6ac9849e1477de1333d303ed42aba225"
   integrity sha1-IOAgvGrJhJ4Ud94TM9MD7UKroiU=
@@ -5336,10 +5336,10 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.13.1.tgz?cache=0&sync_timestamp=1612541794028&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-is%2Fdownload%2Freact-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
-react-native-ping@^1.2.5:
+react-native-ping@1.2.5:
   version "1.2.5"
-  resolved "https://registry.npm.taobao.org/react-native-ping/download/react-native-ping-1.2.5.tgz#9d09d4abd3cce371545b2a5fb6aae42a6322c41f"
-  integrity sha1-nQnUq9PM43FUWypftqrkKmMixB8=
+  resolved "https://registry.yarnpkg.com/react-native-ping/-/react-native-ping-1.2.5.tgz#9d09d4abd3cce371545b2a5fb6aae42a6322c41f"
+  integrity sha512-7XVddYH9OzOaIMGA8LwIxVtIIGYo/SM008qFSP3Y2eX5fARi7E8Kzn41V8qhTY7qsW1xwGen7AeiRXBFwHyZOg==
 
 react-native@0.63.4:
   version "0.63.4"
