@@ -15,8 +15,8 @@
     "react-native-ping": "^1.2.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/runtime": "^7.8.4",
+    "@babel/core": "7.14.6",
+    "@babel/runtime": "7.14.6",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.1.0",
     "eslint": "^6.5.1",
