@@ -28,6 +28,7 @@ RCT_EXPORT_METHOD(
                   ) {
     __block GBPing * ping = [[GBPing alloc] init];
     ping.timeout = 1.0;
+    ping.payloadSize = 56;
     ping.pingPeriod = 0.9;
     ping.host = ipAddress;
     NSNumber *nsTimeout = option[@"timeout"];
@@ -37,6 +38,11 @@ RCT_EXPORT_METHOD(
         ping.timeout = timeout;
     }
     
+    NSNumber *nsPayloadSize = option[@"payloadSize"];
+    if (nsPayloadSize) {
+        unsigned long long payloadSize = nsPayloadSize.unsignedLongLongValue;
+        ping.payloadSize = payloadSize;
+    }
 
     [ping setupWithBlock:^(BOOL success, NSError *_Nullable err) {
         if (!success) {
