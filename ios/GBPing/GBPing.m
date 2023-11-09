@@ -372,7 +372,11 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
     enum { kBufferSize = 65535 };
 
     buffer = malloc(kBufferSize);
-    assert(buffer);
+
+    if (buffer == nil) {
+        err = errno;
+        return;
+    }
 
     //set socket timeout
     struct timeval tv;
@@ -381,7 +385,7 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
     if (setsockopt(self.socket, SOL_SOCKET, SO_RCVTIMEO,&tv,sizeof(tv)) < 0) {
         NSLog(@"Set Timeput Error");
     }
-    
+
     //read the data.
     addrLen = sizeof(addr);
     bytesRead = recvfrom(self.socket, buffer, kBufferSize, 0, (struct sockaddr *)&addr, &addrLen);
@@ -402,7 +406,11 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
             NSMutableData *packet;
 
             packet = [NSMutableData dataWithBytes:buffer length:(NSUInteger)bytesRead];
-            assert(packet);
+
+            if (packet == nil) {
+                err = errno;
+                return;
+            }
 
             //complete the ping summary
             const struct ICMPHeader *headerPointer;
@@ -523,7 +531,8 @@ static NSTimeInterval const kDefaultTimeout =           2.0;
                 packet = [self pingPacketWithType:kICMPv6TypeEchoRequest payload:payload requiresChecksum:NO];
             } break;
             default: {
-                assert(NO);
+                err = errno;
+                return;
             } break;
         }
 
@@ -791,7 +800,6 @@ static uint16_t in_cksum(const void *buffer, size_t bufferLen)
             result = [self isValidPing6ResponsePacket:packet];
         } break;
         default: {
-            assert(NO);
             result = NO;
         } break;
     }
@@ -882,7 +890,7 @@ static uint16_t in_cksum(const void *buffer, size_t bufferLen)
     ICMPHeader *icmpPtr;
 
     packet = [NSMutableData dataWithLength:sizeof(*icmpPtr) + payload.length];
-    assert(packet != nil);
+    if (packet == nil) { return nil; }
 
     icmpPtr = packet.mutableBytes;
     icmpPtr->type = type;
