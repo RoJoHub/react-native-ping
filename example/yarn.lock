@@ -5337,9 +5337,9 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
 react-native-ping@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.npm.taobao.org/react-native-ping/download/react-native-ping-1.2.5.tgz#9d09d4abd3cce371545b2a5fb6aae42a6322c41f"
-  integrity sha1-nQnUq9PM43FUWypftqrkKmMixB8=
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-native-ping/-/react-native-ping-1.2.8.tgz#c84a944cad50e7874f35b3f8bf884cd08333575e"
+  integrity sha512-yqUJuaoZKi6DclNIppTEKJinppwD0OHzcDkLwtClbLwaYIUrZeMuuAM0iBgeyZeDgNt1DWA4Nr86ictuA48xuA==
 
 react-native@0.63.4:
   version "0.63.4"
